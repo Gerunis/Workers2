@@ -12,5 +12,13 @@ namespace Workers.Core
         {
             Database.EnsureCreated();
         }
+
+        public WorkersDbContext()
+        {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=blog.db");
+        }
     }
 }

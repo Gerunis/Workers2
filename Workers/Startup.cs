@@ -33,6 +33,12 @@ namespace Workers
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var connectionString = Configuration.GetConnectionString("SpaceFleetDbProvider");
+
+            services.AddDbContext<WorkersDbContext>(options =>
+                options.UseNpgsql(sqlConnectionString)
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
