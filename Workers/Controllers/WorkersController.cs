@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Workers.Models;
+using Workers.Core;
 
 namespace Workers.Controllers
 {
@@ -12,16 +12,13 @@ namespace Workers.Controllers
         private readonly WorkersDb _workersDb;
         public WorkersController()
         {
-            _context = context;
+            //_workersDb = new WorkersDb("ConnectionString");
         }
 
         // GET: Workers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Workers
-                .Include(x => x.Language)
-                .Include(x => x.Department)
-                .ToListAsync());
+            return View(await _workersDb.GetWorkers());
         }
 
         // GET: Workers/Details/5

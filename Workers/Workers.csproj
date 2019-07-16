@@ -15,4 +15,8 @@
     <Folder Include="Views\Workers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Workers.Core\Workers.Core.csproj" />
+  </ItemGroup>
+
 </Project>

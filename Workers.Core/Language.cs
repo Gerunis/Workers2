@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Workers.Core
 {
-    public class Language : Models.ILanguage
-    {
+    public class Language
+    { 
         public int Id { get; set; }
         public string Name { get; set; }
     }

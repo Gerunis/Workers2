@@ -2,7 +2,7 @@
 
 namespace Workers.Core
 {
-    class WorkersDbContext : DbContext
+    public class WorkersDbContext : DbContext
     {
         public DbSet<Worker> Workers { get; set; }
         public DbSet<Department> Departments { get; set; }

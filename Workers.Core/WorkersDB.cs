@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Workers.Models;
 
 namespace Workers.Core
 {
-    class WorkersDb : IWorkersDb
+    public class WorkersDb
     {
         private readonly DbContextOptions<WorkersDbContext> _options;
         public WorkersDb(DbContextOptions<WorkersDbContext> options)
@@ -13,7 +12,7 @@ namespace Workers.Core
             _options = options;
         }
 
-        public IEnumerable<IWorker> GetWorkers()
+        public IEnumerable<Worker> GetWorkers()
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -22,7 +21,7 @@ namespace Workers.Core
             }
         }
 
-        public IWorker GetWorker(int id)
+        public Worker GetWorker(int id)
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -34,7 +33,7 @@ namespace Workers.Core
             }
         }
 
-        public void AddWorker(IWorker worker)
+        public void AddWorker(Worker worker)
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -57,7 +56,7 @@ namespace Workers.Core
             }
         }
 
-        public IEnumerable<ILanguage> GetLanguages()
+        public IEnumerable<Language> GetLanguages()
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -65,7 +64,7 @@ namespace Workers.Core
             }
         }
 
-        public ILanguage GetLanguage(int id)
+        public Language GetLanguage(int id)
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -73,7 +72,7 @@ namespace Workers.Core
             }
         }
 
-        public void AddLanguage(ILanguage language)
+        public void AddLanguage(Language language)
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -82,7 +81,7 @@ namespace Workers.Core
             }
         }
 
-        public IEnumerable<IDepartment> GetDepartments()
+        public IEnumerable<Department> GetDepartments()
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -90,7 +89,7 @@ namespace Workers.Core
             }
         }
 
-        public IDepartment GetDepartment(int id)
+        public Department GetDepartment(int id)
         {
             using (var context = new WorkersDbContext(_options))
             {
@@ -98,7 +97,7 @@ namespace Workers.Core
             }
         }
 
-        public void AddDepartment(IDepartment department)
+        public void AddDepartment(Department department)
         {
             using (var context = new WorkersDbContext(_options))
             {

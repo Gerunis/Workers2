@@ -2,7 +2,7 @@
 
 namespace Workers.Core
 {
-    public class Department : Models.IDepartment
+    public class Department
     {
         public int Id { get; set; }
         public string Name { get; set; }
